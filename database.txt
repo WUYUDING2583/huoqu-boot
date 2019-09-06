@@ -1,0 +1,22 @@
+create database family;
+use family;
+create table user(
+phone char(11) primary key,
+name varchar(20) not null,
+id char(18),
+isRegister tinyint,
+image varchar(200),
+familyMember varchar(500));
+
+create table location(
+phone char(11),
+latitude double,
+longitude double,
+address varchar(200),
+accuracy float,
+time bigint);
+
+create user 'family123'@'localhost' identified by 'Family123';
+create user 'family123'@'%' identified by 'Family123';
+grant all privileges on family.* to family123@'%';
+grant all privileges on family.* to family123@'localhost';
